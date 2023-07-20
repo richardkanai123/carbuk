@@ -1,5 +1,5 @@
 import VehicleCard from '@/components/VehicleCard';
-import React from 'react'
+import React, { Suspense } from 'react'
 
 
 
@@ -18,11 +18,16 @@ const Page = async () => {
             <h1 className="text-2xl fony-bold mt-4  ">Our Fleet</h1>
 
             <div className=" self-center w-full flex gap-2 flex-wrap p-2 items-center justify-evenly">
-                {
-                    fleet.map((car) => (
-                        <VehicleCard key={car.registration} vehicle={car} />
-                    ))
-                }
+                <Suspense fallback={
+                    <p className='text=3xl font-extrabold text-center'>
+                        Loading Vehicles......
+                    </p>}>
+                    {
+                        fleet.map((car) => (
+                            <VehicleCard key={car.registration} vehicle={car} />
+                        ))
+                    }
+                </Suspense>
             </div>
         </div>
     )

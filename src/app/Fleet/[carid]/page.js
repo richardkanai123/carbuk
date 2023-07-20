@@ -37,7 +37,7 @@ const Page = async ({ params }) => {
 
             </div>
 
-            <Link href="/Booking" className='text-center items-center  p-2 bg-sky-600 hover:bg-sky-500 ring-0 border-none rounded-md font-semibold'> Go to Booking </Link>
+            <Link href={`/Booking/${carid}`} className='text-center items-center  p-2 bg-sky-600 hover:bg-sky-500 ring-0 border-none rounded-md font-semibold'>Book Vehicle </Link>
 
         </div>
     )

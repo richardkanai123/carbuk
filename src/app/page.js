@@ -29,10 +29,10 @@ const Home = () => {
           <h1 className="text-7xl text-transparent bg-gradient-to-r from-cyan-400 to-amber-500 text-clip bg-clip-text my-4 p-2">
             CarBuk
           </h1>
-          <p className="text-4xl font-semibold line-clamp-3">Your Favourite Car Booking site In Kenya</p>
+          <p className="text-4xl font-semibold line-clamp-3">Your Partners in Personal Onroad and OffRoad Transport</p>
 
           <Link href={"/Booking"}
-            className="w-[200px] mx-auto bg-gradient-to-l from-cyan-400 via-sky-700 to-amber-500 p-2 ring-0 outline-none border-0 text-lg font-semibold rounded-lg shadow-md shadow-sky-800 hover:opacity-75 hover:bg-sky-400 hover:shadow-none transition-all ease-in"
+            className="w-[200px] mx-auto bg-gradient-to-l from-cyan-400 via-sky-700 to-amber-500 p-2 ring-0 outline-none border-0 text-lg font-semibold rounded-lg shadow-md shadow-sky-800 hover:opacity-75 hover:bg-sky-400 hover:shadow-none transition-all ease-in mt-4"
           >Book Now</Link>
         </div>
 

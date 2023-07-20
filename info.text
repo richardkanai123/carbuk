@@ -87,8 +87,6 @@ try {
     year: 1993
   }
 
-
-
   boooking.....
   vehicleType
   VehicleRegistration
@@ -96,3 +94,4 @@ try {
   bookingPrice
   pickupPoint
   dropOffPoint
+  bookingStatus : ->past, active, scheduled,pending
