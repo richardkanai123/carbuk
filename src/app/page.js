@@ -30,10 +30,21 @@ const Home = () => {
             CarBuk
           </h1>
           <p className="text-4xl font-semibold line-clamp-3">Your Partners in Personal Onroad and OffRoad Transport</p>
+          <div className="w-full flex justify-center align-middle p-2 gap-4">
 
-          <Link href={"/Booking"}
-            className="w-[200px] mx-auto bg-gradient-to-l from-cyan-400 via-sky-700 to-amber-500 p-2 ring-0 outline-none border-0 text-lg font-semibold rounded-lg shadow-md shadow-sky-800 hover:opacity-75 hover:bg-sky-400 hover:shadow-none transition-all ease-in mt-4"
-          >Book Now</Link>
+            <Link href={"/Booking"}
+              className="w-[200px] mx-auto bg-gradient-to-l from-cyan-400 via-sky-700 to-amber-500 p-2 ring-0 outline-none border-0 text-lg font-semibold rounded-lg shadow-md shadow-sky-800 hover:opacity-75 hover:bg-sky-400 hover:shadow-none transition-all ease-in mt-4"
+            >
+              Book Now
+            </Link>
+
+            <Link href={"/Fleet"}
+              className="w-[200px] mx-auto p-2 ring-0 outline-none border-0 text-lg font-semibold rounded-lg hover:opacity-75 hover:bg-sky-400 hover:underline transition-all ease-in mt-4"
+            >
+              Our Fleet
+            </Link>
+
+          </div>
         </div>
 
         {/* image */}

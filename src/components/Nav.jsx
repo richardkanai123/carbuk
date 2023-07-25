@@ -5,10 +5,14 @@ import React from 'react'
 import { GiHamburgerMenu } from "react-icons/gi"
 import { useState } from 'react'
 import { MdOutlineMenuOpen } from 'react-icons/md'
-
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { firebaseAuth } from '@/libs/Firebase'
+import BeatLoader from 'react-spinners/BeatLoader'
+import LoginButton from './LoginButton'
 
 const Nav = () => {
     const [menuOpen, setMenuOpen] = useState(false)
+    const [user, loading, error] = useAuthState(firebaseAuth)
 
 
 
@@ -52,11 +56,10 @@ const Nav = () => {
 
                             {navLinks.map((link) => (
                                 <li
-
-                                    className='hover:underline p-2 rounded-md md:rounded-none w-full md:w-fit hover:bg-emerald-500   text-gray-300 bg-opacity-90  sm:border-b border-gray-50 md:border-0 underline-offset-2 pointer-events-none ' key={link.tag}>
+                                    className='hover:underline p-2 rounded-md md:rounded-none w-full md:w-fit hover:bg-emerald-500   text-gray-300 bg-opacity-90  sm:border-b border-gray-50 md:border-0 underline-offset-2 pointer-events-none ring-0 ' key={link.tag}>
                                     <Link
                                         onClick={(prev) => setMenuOpen(!prev)}
-                                        className=' pointer-events-auto w-full h-full active:underline' href={link.url}>{link.tag}</Link>
+                                        className=' pointer-events-auto w-full h-full p-4 active:underline' href={link.url}>{link.tag}</Link>
                                 </li>
                             ))}
 
@@ -67,9 +70,30 @@ const Nav = () => {
                 </div>
 
                 <div className="w-fit flex  items-center align-middle justify-center gap-1 self-end p-1">
-                    <Link href="/Profile" className='p-2 bg-sky-400 text-white shadow-md rounded-sm hover:opacity-70'>
+                    {/* <Link href="/Profile" className='p-2 bg-sky-400 text-white shadow-md rounded-sm hover:opacity-70'>
                         Account
-                    </Link>
+                    </Link> */}
+
+                    {
+                        loading && <BeatLoader
+                            aria-label="Loading Spinner"
+                            data-testid="loader"
+                            color='#0EA5E9'
+                        />
+                    }
+
+                    {(user && error == undefined) &&
+                        <Link href="/Profile" className='flex items-center align-middle p-2 bg-sky-400 text-white shadow-md rounded-sm hover:opacity-70'>
+                            <button className='flex  items-center align-middle gap-2 '>
+                                <Image className='rounded-full' src={user.photoURL} alt={user.displayName} width={30} height={30} />
+                                <span className='text-xs'>{user.displayName}</span>
+                            </button>
+                        </Link>
+                    }
+
+                    {
+                        (!loading && (user === undefined || user === null)) && <LoginButton />
+                    }
 
                     <span
                         onClick={() => setMenuOpen(!menuOpen)}

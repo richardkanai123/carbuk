@@ -12,7 +12,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 const FleetFilters = ({ carData }) => {
-    console.log(carData[0]);
     const { registration, bodyType, fuelType, recommendedUsage, rentalRatePerDay } = carData[0]
 
     // initial range for the range picker, changes using the handleselect function
@@ -75,7 +74,6 @@ const FleetFilters = ({ carData }) => {
             }
         )
 
-        console.log(newBooking);
     }
 
     // sets ranges after a selection has been made on the picker

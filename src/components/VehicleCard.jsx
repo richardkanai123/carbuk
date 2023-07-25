@@ -3,6 +3,7 @@ import React from 'react'
 import { TbManualGearbox, TbEngine } from 'react-icons/tb'
 import { BsFuelPumpFill, BsFuelPump } from 'react-icons/bs'
 import Link from 'next/link'
+import { FaRoad } from 'react-icons/fa'
 
 
 const VehicleCard = ({ vehicle }) => {
@@ -12,17 +13,8 @@ const VehicleCard = ({ vehicle }) => {
         transmission, bookingStatus, registration } = vehicle
     return (
         <div className='w-full flex flex-col items-center align-middle justify-center gap-2 md:w-[350px] bg-slate-700 rounded-lg shadow-sm p-3 relative '>
-            {
-                bookingStatus === true ? <span className="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
-                    Booked
-                </span> :
-                    <span className="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
-                        Available
-                    </span>
-
-            }
-            <div className="w-full  max-w-[350px] p-2 relative h-[250px] object-contain object-center ">
-                <Image src={imgUrl} fill={true} className=' aspect-video ' alt={registration} />
+            <div className="w-full max-w-xs p-6 relative h-[200px]  mx-auto flex items-center justify-center align-middle object-cover object-center ">
+                <Image src={imgUrl} fill className='' alt={registration} />
             </div>
 
             <div className="w-full flex gap-2 items-center justify-around align-middle p-1 backdrop-blur-sm rounded-xl bg-opacity-90 bg-slate-500 ">
@@ -56,6 +48,14 @@ const VehicleCard = ({ vehicle }) => {
                     </p>
                     <span className='text-lg font-light' >
                         {fuelType === "Petrol" ? "P" : "D"}
+                    </span>
+                </div>
+                <div className="flex flex-col items-center justify-center align-middle  ">
+                    <p className="text-bold text-2xl">
+                        <FaRoad />
+                    </p>
+                    <span className='text-lg font-light' >
+                        {recommendedUsage === "Onroad" ? "On" : "Off"}
                     </span>
                 </div>
             </div>
