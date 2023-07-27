@@ -8,7 +8,6 @@ const Page = () => {
             <div className='flex-1'>Admin Content</div>
             <div className='flex-1'>Admin Content</div>
             <div className='flex-1'>Admin Content</div>
-
         </div>
     )
 }

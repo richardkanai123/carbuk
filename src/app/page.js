@@ -83,7 +83,44 @@ const Home = () => {
         </div>
 
       </div>
-    </div>
+
+      <div className="w-full h-fit flex flex-col items-center justify-center align-middle p-2 mt-5" id="Booking Process">
+        <h1 className="bg-gradient-to-l from-cyan-400 via-sky-700 to-amber-500 text-2xl font-bold text-clip bg-clip-text text-transparent mb-4 ">Booking Process</h1>
+        <div className="w-full h-fit flex flex-col md:flex-row md:flex-wrap items-center justify-evenly align-middle gap-2" id="HowToBook">
+          <div className="py-2 text-center px-4 bg-slate-700 flex flex-col align-middle justify-center gap-3 rounded-md flex-1 w-[full] md:min-w-[300px] min-h-[320px] md:max-w-[350px]">
+            <h3 className="text-3xl font-bold text-center">Step 1</h3>
+            <ul className="font-semibold text-lg list-outside list-disc text-left px-2">
+              <li className="list-item">Visit Our Website and go to <a className="text-sky-500 font-semibold underline" href='/Fleet'>Fleet</a> to see our vehicles List.</li>
+              <li className="list-item">Click on any vehicle that you would like to view more details and book.</li>
+              <li className="list-item">
+                See the details provided about the vehicle and ensure it meets your specific needs.
+              </li>
+            </ul>
+          </div>
+          <div className="py-2 text-center px-4 bg-slate-700 flex flex-col align-middle justify-center gap-3 rounded-md flex-1 w-[full] md:min-w-[300px] min-h-[320px] md:max-w-[350px]">
+            <h3 className="text-3xl font-bold text-center">Step 2</h3>
+            <ul className="font-semibold text-lg list-outside list-disc text-left px-2">
+              <li className="list-item">
+                Click the Book Vehicle Button on the Vehicle Details Page
+              </li>
+              <li className="list-item">Alternatively, Go to the <a className="text-sky-500 font-semibold underline" href="/Booking">Booking Page</a> and Select a Car of Your Choice.</li>
+              <li className="list-item ">Use the filters to filter Vehicles by Body Type, Terrain or Fuel</li>
+              <li className="list-item "> Select the duration on the calender </li>
+            </ul>
+          </div>
+          <div className="py-2 text-center px-4 bg-slate-700 flex flex-col align-middle justify-center gap-3 rounded-md flex-1 w-[full] md:min-w-[300px] min-h-[320px] md:max-w-[350px]">
+            <h3 className="text-3xl font-bold text-center">Step 3</h3>
+            <ul className="font-semibold text-lg list-outside list-disc text-left px-2">
+              <li className="list-item">
+                Click Confirm Booking Details and ensure the details are correct from the pop up.
+              </li>
+              <li className="list-item">Confirm the details by clicking Yes on the pop up. A pending Booking will be updated.</li>
+              <li className="list-item ">Go to your  <a className="text-sky-500 font-semibold underline" href="/Profile">Profile Page</a> to see the status and details of your booking.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div >
   )
 }
 

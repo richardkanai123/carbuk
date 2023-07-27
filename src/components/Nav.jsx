@@ -18,8 +18,8 @@ const Nav = () => {
 
     const navLinks = [
         {
-            tag: "About Us",
-            url: "/#About"
+            tag: "Home",
+            url: "/"
         },
         {
             tag: "Book",

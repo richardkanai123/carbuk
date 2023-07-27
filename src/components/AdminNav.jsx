@@ -34,7 +34,7 @@ const AdminNav = () => {
     ]
 
     return (
-        <nav className='self-start flex gap-2 border-gray-200 p-1 border-b-2 '>
+        <nav className='w-full md:w-fit self-start flex gap-3 border-gray-200 p-1 border-b-2 '>
             {
                 navLinks.map((link) => (
                     <Link className="active:underline text-gray-200 text-base flex items-center align-middle hover:text-blue-300" href={link.url} key={link.tag}>
