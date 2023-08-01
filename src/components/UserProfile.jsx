@@ -7,10 +7,13 @@ import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { UserAuth } from '@/Context/AuthContext';
 
 const UserProfile = () => {
     const [user, loading, error] = useAuthState(firebaseAuth)
     const Router = useRouter()
+
+    const { handleLogOut } = UserAuth()
 
     if (loading) {
         return (
@@ -48,21 +51,14 @@ const UserProfile = () => {
                 </div>
                 <p>{user.displayName}</p>
                 <p>{user.email}</p>
-                <button onClick={async () => {
-                    try {
-                        await signOut(firebaseAuth)
-                            .then(() => {
-                                toast.info('Logged Out!')
-                            })
-                    } catch (error) {
-                        toast.error(`Error Occured: ${error.message}`)
-                    }
-                }} className='p-3 mt-2 rounded-md bg-sky-500 hover:bg-opacity-80 hover:px-2 hover:py-3 w-[150px] outline-0 ring-0 border-0 font-bold'>
+                <button onClick={handleLogOut}
+                    className='p-3 mt-2 rounded-md bg-sky-500 hover:bg-opacity-80 hover:px-2 hover:py-3 w-[150px] outline-0 ring-0 border-0 font-bold'>
                     Log Out
-                </button></div>
+                </button>
+            </div>
 
             <ToastContainer />
-        </div>
+        </div >
     )
 
 }

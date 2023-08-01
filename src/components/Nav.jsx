@@ -9,12 +9,13 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { firebaseAuth } from '@/libs/Firebase'
 import BeatLoader from 'react-spinners/BeatLoader'
 import LoginButton from './LoginButton'
+import { UserAuth } from '@/Context/AuthContext'
 
 const Nav = () => {
     const [menuOpen, setMenuOpen] = useState(false)
     const [user, loading, error] = useAuthState(firebaseAuth)
 
-
+    const { LoggedUser, handleLogIn, handleLogOut } = UserAuth()
 
     const navLinks = [
         {
@@ -40,8 +41,8 @@ const Nav = () => {
     return (
         <div className='z-20 h-10 w-full max-w-5xl relative p-1 flex items-center justify-center align-middle mb-6'>
             <div className='w-full fixed p-4 top-0 bg-inherit flex flex-1 items-center justify-center align-middle border-b border-gray-50'>
-                <Link href="/" className='relative p-2 w-10 h-10 object-cover object-center' >
-                    <Image src="/carart64.ico" alt="logo loading" priority placeholder='logo' fill />
+                <Link href="/" className='relative p-2  object-cover object-center' >
+                    <Image src="/carart64.ico" alt="logo loading" priority placeholder='logo' width={30} height={30} />
                 </Link>
 
                 <div className="relative flex-1 ">
@@ -82,17 +83,17 @@ const Nav = () => {
                         />
                     }
 
-                    {(user && error == undefined) &&
+                    {(LoggedUser && error == undefined) &&
                         <Link href="/Profile" className='flex items-center align-middle p-2 bg-sky-400 text-white shadow-md rounded-sm hover:opacity-70'>
                             <button className='flex  items-center align-middle gap-2 '>
-                                <Image className='rounded-full' src={user.photoURL} alt={user.displayName} width={30} height={30} />
-                                <span className='text-xs'>{user.displayName}</span>
+                                <Image className='rounded-full' src={LoggedUser.photoURL} alt={LoggedUser.displayName} width={30} height={30} />
+                                <span className='text-xs'>{LoggedUser.displayName}</span>
                             </button>
                         </Link>
                     }
 
                     {
-                        (!loading && (user === undefined || user === null)) && <LoginButton />
+                        (LoggedUser === null && !loading) && <LoginButton />
                     }
 
                     <span

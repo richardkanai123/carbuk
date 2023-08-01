@@ -69,8 +69,7 @@ const UnreadMessage = () => {
                         </div>
                         <p className=" text-base p-1">{message.senderMessage}</p>
                         <span className="text-xs italic font-light self-end text-right">
-                            {/* {toDate(message.timeSent)} */}
-                            t0_bbe_added
+                            {(message.timeSent).toDate().toLocaleString()}
                         </span>
                     </li>
                 ))

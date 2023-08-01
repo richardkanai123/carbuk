@@ -9,10 +9,14 @@ import { format, addDays } from 'date-fns'
 import dayjs from 'dayjs'
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { UserAuth } from "@/Context/AuthContext";
+import LoginButton from "./LoginButton";
 
 
 const FleetFilters = ({ carData }) => {
     const { registration, bodyType, fuelType, recommendedUsage, rentalRatePerDay } = carData[0]
+
+    const { LoggedUser } = UserAuth()
 
     // initial range for the range picker, changes using the handleselect function
     const [Range, SetRange] = useState(
@@ -141,8 +145,22 @@ const FleetFilters = ({ carData }) => {
                 </p>
 
 
+                {
+                    LoggedUser != null ? (
 
-                <button className="px-3 py-2 mt-6 bg-sky-700 rounded-md hover:bg-opacity-70 " onClick={() => showBookingDetails()}>Confirm Booking Details </button>
+                        <button
+                            className="px-3 py-2 mt-6 bg-sky-700 rounded-md hover:bg-opacity-70 "
+                            onClick={() => showBookingDetails()}>Confirm Booking Details
+                        </button>
+                    ) : (
+                        <>
+                            <p className="text-gray-400 font-light italic mt-8">
+                                Log in to Book
+                            </p>
+                            <LoginButton />
+                        </>
+                    )
+                }
 
                 <ToastContainer
                     limit={1}

@@ -39,7 +39,7 @@ const Home = () => {
             </Link>
 
             <Link href={"/Fleet"}
-              className="w-[200px] mx-auto p-2 ring-0 outline-none border-0 text-lg font-semibold rounded-lg hover:opacity-75 hover:bg-sky-400 hover:underline transition-all ease-in mt-4"
+              className="w-[200px] mx-auto p-2 ring-0 outline-none border-0 text-lg font-semibold rounded-lg underline underline-offset-1 hover:opacity-75 hover:bg-sky-400 hover:underline transition-all ease-in mt-4"
             >
               Our Fleet
             </Link>
@@ -48,8 +48,8 @@ const Home = () => {
         </div>
 
         {/* image */}
-        <div className="h-full w-full md:w-[50%]  items-center hidden md:flex justify-center align-middle  object-center relative  p-4 transition-all duration-[5000] ease-linear delay-100 ">
-          <Image src="/suv 1000.png" alt="Hero Car Loading" fill={true} objectFit="contain" className=" scale-[85%] -z-20 " />
+        <div className="h-full w-full md:w-[50%]  items-center hidden md:flex justify-center align-middle  object-center object-contain relative  p-4 transition-all duration-[5000] ease-linear delay-100 ">
+          <Image src="/suv 1000.png" alt="Hero Car Loading" priority width={1000} height={900} className=" scale-[85%] -z-20 object-contain  " />
         </div>
       </div>
 

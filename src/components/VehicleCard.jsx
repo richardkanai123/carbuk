@@ -11,10 +11,11 @@ const VehicleCard = ({ vehicle }) => {
         recommendedUsage, fuelType,
         consumptionRating,
         transmission, bookingStatus, registration } = vehicle
+
     return (
         <div className='w-full flex flex-col items-center align-middle justify-center gap-2 md:w-[350px] bg-slate-700 rounded-lg shadow-sm p-3 relative '>
             <div className="w-full max-w-xs p-6 relative h-[200px]  mx-auto flex items-center justify-center align-middle object-cover object-center ">
-                <Image src={imgUrl} fill className='' alt={registration} />
+                <Image src={imgUrl} fill className='object-cover' alt={registration} />
             </div>
 
             <div className="w-full flex gap-2 items-center justify-around align-middle p-1 backdrop-blur-sm rounded-xl bg-opacity-90 bg-slate-500 ">

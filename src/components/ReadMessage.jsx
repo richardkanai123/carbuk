@@ -49,7 +49,6 @@ const ReadMessage = () => {
     }
 
 
-    console.log(readMessages[0].timeSent.seconds);
     return (
         <ul className="w-full p-2 flex flex-col items-center justify-center gap-2 list-none">
             {
@@ -64,7 +63,7 @@ const ReadMessage = () => {
                         </div>
                         <p className=" text-base p-1">{message.senderMessage}</p>
                         <span className="text-xs italic font-light self-end text-right">
-                            {message.timeSent.seconds}
+                            {(message.timeSent).toDate().toLocaleString()}
                         </span>
                     </li>
                 ))
