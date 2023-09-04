@@ -6,12 +6,6 @@ import { BsFillSendFill } from 'react-icons/bs'
 
 
 
-
-export const metadata = {
-    title: 'CarBuk Contact',
-    description: 'Contact page for CarBuk',
-}
-
 const Page = () => {
     return (
         <div className="w-full flex flex-col items-center align-middle justify-center gap-4 p-2">
