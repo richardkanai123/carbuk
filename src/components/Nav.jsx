@@ -42,7 +42,7 @@ const Nav = () => {
         <div className='z-20 h-10 w-full max-w-5xl relative p-1 flex items-center justify-center align-middle mb-6'>
             <div className='w-full fixed p-4 top-0 bg-inherit flex flex-1 items-center justify-center align-middle border-b border-gray-50'>
                 <Link href="/" className='relative p-2  object-cover object-center' >
-                    <Image src="/carart64.ico" alt="logo loading" priority placeholder='logo' width={30} height={30} />
+                    <Image src="/carart64.ico" alt='loading' width={30} height={30} />
                 </Link>
 
                 <div className="relative flex-1 ">
@@ -71,29 +71,14 @@ const Nav = () => {
                 </div>
 
                 <div className="w-fit flex  items-center align-middle justify-center gap-1 self-end p-1">
-                    {/* <Link href="/Profile" className='p-2 bg-sky-400 text-white shadow-md rounded-sm hover:opacity-70'>
-                        Account
-                    </Link> */}
 
-                    {
-                        loading && <BeatLoader
-                            aria-label="Loading Spinner"
-                            data-testid="loader"
-                            color='#0EA5E9'
-                        />
-                    }
-
-                    {(LoggedUser && error == undefined) &&
+                    {(LoggedUser && error == undefined && !loading) ?
                         <Link href="/Profile" className='flex items-center align-middle p-2 bg-sky-400 text-white shadow-md rounded-sm hover:opacity-70'>
                             <button className='flex  items-center align-middle gap-2 '>
                                 <Image className='rounded-full' src={LoggedUser.photoURL} alt={LoggedUser.displayName} width={30} height={30} />
                                 <span className='text-xs'>{LoggedUser.displayName}</span>
                             </button>
-                        </Link>
-                    }
-
-                    {
-                        (LoggedUser === null && !loading) && <LoginButton />
+                        </Link> : <LoginButton />
                     }
 
                     <span

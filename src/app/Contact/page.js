@@ -1,8 +1,5 @@
-'use client'
-import ContactForm from '@/components/ContactForm'
-import Image from 'next/image'
 import React from 'react'
-import { BsFillSendFill } from 'react-icons/bs'
+import ContactForm from '@/components/ContactForm'
 
 
 

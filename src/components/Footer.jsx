@@ -10,7 +10,7 @@ const Footer = () => {
         <div className='h-20 w-full relative p-2 flex gap-2 items-center justify-around align-middle mt-6 border-t border-gray-50 mx-auto '>
 
             <Link href="/" className='relative p-2 w-10 h-10 object-cover object-center' >
-                <Image src="/carart64.ico" alt="logo loading" priority placeholder='logo' fill />
+                <Image src="/carart64.ico" alt="logo loading" priority fill />
             </Link>
 
             <section className='flex flex-col items-center justify-center align-middle gap-2 md:flex-row mt-4'>

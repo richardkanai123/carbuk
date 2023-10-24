@@ -11,6 +11,8 @@ import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { UserAuth } from "@/Context/AuthContext";
 import LoginButton from "./LoginButton";
+import { db } from "@/libs/Firebase";
+import { addDoc, collection } from "firebase/firestore";
 
 
 const FleetFilters = ({ carData }) => {
@@ -74,6 +76,7 @@ const FleetFilters = ({ carData }) => {
                 theme: "colored",
                 icon: false,
                 draggable: false,
+                toastId: "newConfirmToast"
 
             }
         )

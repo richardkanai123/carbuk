@@ -9,9 +9,16 @@ import { format, addDays } from 'date-fns'
 import dayjs from 'dayjs'
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { UserAuth } from "@/Context/AuthContext";
+import { addDoc, collection } from "firebase/firestore";
+import { db } from "@/libs/Firebase";
 
 
 const FleetFilters = ({ fleet }) => {
+
+
+    const { LoggedUser } = UserAuth()
+
 
     const [BodyType, setBodyType] = useState('Select')
     const [fuelType, setfuelType] = useState('Select')
@@ -51,7 +58,8 @@ const FleetFilters = ({ fleet }) => {
                 {
                     type: "error",
                     autoClose: 3000,
-                    theme: "colored"
+                    theme: "colored",
+                    toastId: 'newConfirmToast'
                 }
             )
             return false;
@@ -81,7 +89,35 @@ const FleetFilters = ({ fleet }) => {
                     <p className="text-xl">Total Cost: {SelectedVehicleData[0].rentalRatePerDay * SelectedDuration}</p>
 
                     <div className="w-full flex p-1 align-middle justify-evenly">
-                        <button className="bg-green-800 text-white p-2 rounded-md">Yes</button>
+                        <button
+                            onClick={async () => {
+
+                                if (!LoggedUser) {
+                                    toast.dismiss()
+                                    toast.error("Log in to Book")
+                                }
+
+
+                                toast.update("Booking...")
+                                const newBooking = {
+                                    "to": format(selectedDate[0]?.endDate, 'MM/dd/yyyy'),
+                                    "from": format(selectedDate[0]?.startDate, 'MM/dd/yyyy'),
+                                    "duration": SelectedDuration,
+                                    "vehicleReg": SelectedVehicleReg,
+                                    "cost": SelectedVehicleData[0].rentalRatePerDay * SelectedDuration,
+                                    "status": "Pending",
+                                    "customeruid": LoggedUser.uid,
+
+                                }
+                                console.log(newBooking)
+                                const bookingCollectionRef = collection(db, "bookings")
+                                const newBookinDoc = await addDoc(bookingCollectionRef, newBooking)
+                                    .then((doc) => {
+                                        console.log(doc)
+                                    })
+                            }}
+
+                            className="bg-green-800 text-white p-2 rounded-md">Yes</button>
                         <button onClick={dismissToast} className="bg-red-800 text-white p-2 rounded-md">No</button>
                     </div>
                 </div>,
